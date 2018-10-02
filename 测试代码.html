@@ -1,0 +1,9 @@
+import requests
+import re
+
+url = 'http://www.meituan.com/changecity/'
+
+res = requests.get(url)
+urls = re.findall('<a href="(.*?)" class="link city ">(.*?)</a>',res.text,re.S)
+for url in urls:
+    print(url)
